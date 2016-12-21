@@ -1,0 +1,21 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    arena (0.1.0)
+      httparty
+      json
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
+    json (2.0.2)
+    multi_xml (0.6.0)
+    slack-notifier (1.5.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  arena
+  slack-notifier
+
+BUNDLED WITH
+   1.13.6
