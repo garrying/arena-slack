@@ -13,7 +13,14 @@ require './api/slack'
         else
           story.item.image.original.url
         end
+      block_source_link =
+        if block_source.include? 'twitter.com'
+          story.item.source.url
+        else
+          ''
+        end
       slack_note_extend = {
+        text: block_source_link,
         author_name: 'Connected to ' + story.target.title,
         author_link: @arena_url + story.user.slug + '/' + story.target.slug,
         title: story.item.title,
