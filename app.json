@@ -1,0 +1,15 @@
+{
+  "name": "Arena Slack Feed",
+  "description": "Posting your Arena feed in a Slack channel via webhooks.",
+  "repository": "https://github.com/garrying/arena-slack",
+  "addons": ["scheduler:standard"],
+  "keywords": ["slack", "webhooks", "arena", "social", "post", "notifications", "feed"],
+  "env": {
+    "SLACK_POST_URL": {
+      "description": "Your Slack incoming post URL."
+    },
+    "ARENA_ACCESS_TOKEN": {
+      "description": "The personal access token generated at dev.are.na when a new app is registered."
+    }
+  }
+}
