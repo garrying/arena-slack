@@ -12,7 +12,7 @@ Posting your [Arena](https://www.are.na/) feed in a Slack channel via webhooks.
 
 2. Get your Slack incoming post URL at `https://<YOURSLACKTEAMNAME>.slack.com/services/new/incoming-webhook`
 
-3. Register a new application on Arena at [dev.arena](https://dev.are.na/), and get the `Personal Access Token`
+3. Register a new application on Arena at [dev.are.na](https://dev.are.na/), and get the `Personal Access Token`
 
 4. In Heroku's app settings, add `ARENA_ACCESS_TOKEN` and `SLACK_POST_URL` to the _Config Variables_
 
