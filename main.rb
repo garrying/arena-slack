@@ -88,6 +88,10 @@ require './api/slack'
       note_thumb = story.target.image.display.url
       note_title = story.target.title
       note_link = story.target.source.url
+    elsif story.target.has_image?
+      note_link = @arena_url + 'block/' + story.target.id.to_s
+      note_title = story.target.title
+      note_thumb = story.target.image.display.url
     end
     slack_note_extend = {
       author_name: 'Commented',
