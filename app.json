@@ -2,6 +2,7 @@
   "name": "Arena Slack Feed",
   "description": "Posting your Arena feed in a Slack channel via webhooks.",
   "repository": "https://github.com/garrying/arena-slack",
+  "logo": "http://i.imgur.com/vcvYMca.png",
   "addons": ["scheduler:standard"],
   "keywords": ["slack", "webhooks", "arena", "social", "post", "notifications", "feed"],
   "env": {
