@@ -32,7 +32,8 @@ require './api/slack'
         author_name: 'Connected to ' + story.item.title,
         author_link: @arena_url + story.user.slug + '/' + story.item.slug,
         title: story.target.title,
-        title_link: @arena_url + story.target.user.slug + '/' + story.target.slug
+        title_link: @arena_url + story.target.user.slug + '/' + story.target.slug,
+        color: color_setter(story.target.status)
       }
     elsif story.item._class == 'Text'
       slack_note_extend = {
@@ -47,6 +48,7 @@ require './api/slack'
     if defined?(story.item.title)
       note_title = story.item.title + ', by ' + story.item.user.full_name
       note_link = @arena_url + story.item.slug
+      note_status = color_setter(story.item.status)
       note_fields = [
         {
           title: 'Blocks',
@@ -81,7 +83,8 @@ require './api/slack'
       thumb_url: note_thumb,
       title_link: note_link,
       title: note_title,
-      fields: note_fields
+      fields: note_fields,
+      color: note_status
     }
   elsif story.action == 'commented on'
     if story.target.has_image? && story.target.source

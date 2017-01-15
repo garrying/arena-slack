@@ -14,3 +14,13 @@ def slack_notifier_base(story_timestamp)
     footer_icon: @arena_url + 'favicon.ico'
   }
 end
+
+def color_setter(story_status)
+  if story_status == 'public'
+    '#17ac10'
+  elsif story_status == 'private'
+    '#b60202'
+  else
+    '#4b3d67'
+  end
+end
