@@ -29,11 +29,11 @@ require './api/slack'
       }
     elsif story.item._class == 'Channel'
       slack_note_extend = {
-        author_name: 'Connected to ' + story.item.title,
-        author_link: @arena_url + story.user.slug + '/' + story.item.slug,
-        title: story.target.title,
-        title_link: @arena_url + story.target.user.slug + '/' + story.target.slug,
-        color: color_setter(story.target.status)
+        author_name: 'Connected to ' + story.target.title,
+        author_link: @arena_url + story.target.user.slug + '/' + story.target.slug,
+        title: story.item.title,
+        title_link: @arena_url + story.item.user.slug + '/' + story.item.slug,
+        color: color_setter(story.item.status)
       }
     elsif story.item._class == 'Text'
       slack_note_extend = {
