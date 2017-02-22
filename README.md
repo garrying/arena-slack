@@ -16,7 +16,7 @@ Posting your [Arena](https://www.are.na/) feed in a Slack channel via webhooks.
 
 4. In Heroku's app settings, add `ARENA_ACCESS_TOKEN` and `SLACK_POST_URL` to the _Config Variables_
 
-5. Add _Heroku Scheduler_ to the app and `make` every 10 minutes
+5. Add _Heroku Scheduler_ to the app and `rake` every 10 minutes
 
 ## Reference
 
