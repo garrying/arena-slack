@@ -33,7 +33,19 @@ require './api/slack'
         author_link: @arena_url + story.target.user.slug + '/' + story.target.slug,
         title: story.item.title,
         title_link: @arena_url + story.item.user.slug + '/' + story.item.slug,
-        color: color_setter(story.item.status)
+        color: color_setter(story.item.status),
+        fields: [
+          {
+            title: 'Blocks',
+            value: story.item.length,
+            short: true
+          },
+          {
+            title: 'Followers',
+            value: story.item.follower_count,
+            short: true
+          }
+        ]
       }
     elsif story.item._class == 'Text'
       slack_note_extend = {
