@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require './api/arena'
 require './api/slack'
 
@@ -122,6 +123,7 @@ require './api/slack'
 
   slack_attachment = slack_notifier_base(story_ts).merge(slack_note_extend)
   slack_avatar = story.user.avatar_image.display
-  @slack_notifier.username = story.user.full_name
-  @slack_notifier.ping icon_url: slack_avatar, attachments: [slack_attachment]
+
+  @slack_notifier = Slack::Notifier.new ENV['SLACK_POST_URL'], username: story.user.full_name
+  @slack_notifier.post icon_url: slack_avatar, attachments: [slack_attachment]
 end

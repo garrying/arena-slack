@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-require 'arena'
 
 # Arena API
 # See https://dev.are.na/oauth/applications
 # A Personal Access Token is required
+require 'arena'
 
 Arena.configure do |config|
   # Put into ENV variable
