@@ -3,9 +3,9 @@
 task default: [:check]
 
 task :check do
-  ruby 'main.rb'
+  ruby './lib/arena_slack.rb'
 end
 
 task :console do
-  sh 'irb -rubygems -I lib -r ./main.rb'
+  sh 'irb -rubygems -I lib -r ./lib/arena_slack.rb'
 end

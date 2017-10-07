@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require './api/arena'
-require './api/slack'
+require_relative 'arena_slack/arena'
+require_relative 'arena_slack/slack'
 
 @arena_feed.stories.reverse_each do |story|
   story_ts = DateTime.rfc3339(story.created_at).to_time.to_i
