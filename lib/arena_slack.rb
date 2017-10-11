@@ -8,7 +8,7 @@ require_relative 'arena_slack/arena_commented'
 
 @arena_feed.stories.reverse_each do |story|
   story_ts = DateTime.rfc3339(story.created_at).to_time.to_i
-  next unless story_ts > (Time.now - 1000 * 10).utc.to_time.to_i
+  next unless story_ts > (Time.now - 60 * 10).utc.to_time.to_i
   if story.action == 'added'
     slack_note_extend = ArenaAddedItem.new(story, @arena_url).block
   elsif story.action == 'followed'
