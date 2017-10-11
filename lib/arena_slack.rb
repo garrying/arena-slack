@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require_relative 'arena_slack/arena'
-require_relative 'arena_slack/slack'
+require_relative 'arena_slack/api/arena'
+require_relative 'arena_slack/api/slack'
 require_relative 'arena_slack/arena_added'
 require_relative 'arena_slack/arena_followed'
 require_relative 'arena_slack/arena_commented'
 
 @arena_feed.stories.reverse_each do |story|
   story_ts = DateTime.rfc3339(story.created_at).to_time.to_i
-  next unless story_ts > (Time.now - 60 * 10).utc.to_time.to_i
+  next unless story_ts > (Time.now - 1000 * 10).utc.to_time.to_i
   if story.action == 'added'
     slack_note_extend = ArenaAddedItem.new(story, @arena_url).block
   elsif story.action == 'followed'
