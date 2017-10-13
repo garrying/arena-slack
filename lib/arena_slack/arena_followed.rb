@@ -8,20 +8,20 @@ class ArenaFollowedItem
   end
 
   def block_thumb
-    return if defined?(@story.item.title)
-    @story.item.avatar_image.display
+    return if defined?(@story.title)
+    @story.avatar_image.display
   end
 
   def block_title
-    if defined?(@story.item.title)
-      @story.item.title + ', by ' + @story.item.user.full_name
+    if defined?(@story.title)
+      @story.title + ', by ' + @story.user.full_name
     else
-      @story.item.full_name
+      @story.full_name
     end
   end
 
   def block_fields_block_type
-    if defined?(@story.item.title)
+    if defined?(@story.title)
       'Blocks'
     else
       'Channels'
@@ -29,17 +29,17 @@ class ArenaFollowedItem
   end
 
   def block_fields_block_count
-    if defined?(@story.item.title)
-      @story.item.length
+    if defined?(@story.title)
+      @story.length
     else
-      @story.item.follower_count
+      @story.follower_count
     end
   end
 
   def block_fields
     followers_count = {
       title: 'Followers',
-      value: @story.item.follower_count,
+      value: @story.follower_count,
       short: true
     }
 
@@ -51,14 +51,14 @@ class ArenaFollowedItem
   end
 
   def block_color
-    color_setter(@story.item.status) if defined?(@story.item.title)
+    color_setter(@story.status) if defined?(@story.title)
   end
 
   def block
     {
       author_name: 'Followed',
       thumb_url: block_thumb,
-      title_link: @arena_url + @story.item.slug,
+      title_link: @arena_url + @story.slug,
       title: block_title,
       fields: block_fields,
       color: block_color

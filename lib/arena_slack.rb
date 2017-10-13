@@ -12,7 +12,7 @@ require_relative 'arena_slack/arena_commented'
   if story.action == 'added'
     slack_note_extend = ArenaAddedItem.new(story, @arena_url).block
   elsif story.action == 'followed'
-    slack_note_extend = ArenaFollowedItem.new(story, @arena_url).block
+    slack_note_extend = ArenaFollowedItem.new(story.item, @arena_url).block
   elsif story.action == 'commented on'
     slack_note_extend = ArenaCommentedItem.new(story, @arena_url).block
   end
