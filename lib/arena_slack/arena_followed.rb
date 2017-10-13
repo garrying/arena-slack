@@ -8,7 +8,7 @@ class ArenaFollowedItem
   end
 
   def block_thumb
-    return if @story.item.title
+    return if defined?(@story.item.title)
     @story.item.avatar_image.display
   end
 
@@ -50,6 +50,10 @@ class ArenaFollowedItem
     }, followers_count]
   end
 
+  def block_color
+    color_setter(@story.item.status) if defined?(@story.item.title)
+  end
+
   def block
     {
       author_name: 'Followed',
@@ -57,7 +61,7 @@ class ArenaFollowedItem
       title_link: @arena_url + @story.item.slug,
       title: block_title,
       fields: block_fields,
-      color: color_setter(@story.item.status)
+      color: block_color
     }
   end
 end
