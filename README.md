@@ -1,4 +1,5 @@
 # Arena Slack Feed
+[![Build Status](https://travis-ci.org/garrying/arena-slack.svg?branch=master)](https://travis-ci.org/garrying/arena-slack)
 
 Posting your [Arena](https://www.are.na/) feed in a Slack channel via webhooks.
 
