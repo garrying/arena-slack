@@ -18,11 +18,8 @@ class ArenaCommentedItem
   end
 
   def block_thumb
-    if @story.target.has_image? && @story.target.source
-      @story.target.image.display.url
-    elsif @story.target.has_image?
-      @story.target.image.display.url
-    end
+    return unless @story.target.has_image?
+    @story.target.image.display.url
   end
 
   def block_link
