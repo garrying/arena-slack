@@ -5,5 +5,5 @@ rvm:
 script:
   - bin/rake test
 
-  notifications:
-    email: false
+notifications:
+  email: false
