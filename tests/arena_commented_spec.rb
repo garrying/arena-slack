@@ -4,7 +4,7 @@ require './lib/arena_slack/api/arena'
 require './lib/arena_slack/api/slack'
 require './lib/arena_slack/arena_commented'
 
-RSpec.describe 'Arena feed comment event' do
+RSpec.describe 'Arena comment event' do
   it 'returns a block title for image blocks' do
     story = double('Block')
     allow(story).to receive_message_chain('target.has_image?') { true }

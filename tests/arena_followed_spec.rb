@@ -4,7 +4,7 @@ require './lib/arena_slack/api/arena'
 require './lib/arena_slack/api/slack'
 require './lib/arena_slack/arena_followed'
 
-RSpec.describe 'Arena feed following event' do
+RSpec.describe 'Arena following event' do
   it 'returns correct channel field lables' do
     story = double('Channel', title: 'Channel Title')
     follow_item = ArenaFollowedItem.new(story, @arena_url).block_fields_block_type
