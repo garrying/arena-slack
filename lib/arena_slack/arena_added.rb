@@ -81,6 +81,14 @@ class ArenaAddedItem
     color_setter(@story.item.status)
   end
 
+  def block_title
+    if @story.item._class == 'Channel'
+      @story.item.title + ', by ' + @story.item.user.full_name
+    else
+      @story.item.title
+    end
+  end
+
   def block
     {
       author_name: 'Connected to ' + @story.target.title,
@@ -89,7 +97,7 @@ class ArenaAddedItem
       fields: block_channel_fields,
       image_url: block_image,
       text: block_text,
-      title: @story.item.title,
+      title: block_title,
       title_link: block_title_link
     }
   end
