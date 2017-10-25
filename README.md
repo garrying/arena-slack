@@ -1,7 +1,7 @@
-# Arena Slack Feed
+# Are.na Slack Feed
 [![Build Status](https://travis-ci.org/garrying/arena-slack.svg?branch=master)](https://travis-ci.org/garrying/arena-slack)
 
-Posting your [Arena](https://www.are.na/) feed in a Slack channel via webhooks.
+Posting your [Are.na](https://www.are.na/) feed in a Slack channel via webhooks.
 
 ![Preview](https://i.imgur.com/rzEP7jY.png)
 
@@ -13,7 +13,7 @@ Posting your [Arena](https://www.are.na/) feed in a Slack channel via webhooks.
 
 2. Get your Slack incoming post URL at `https://<YOURSLACKTEAMNAME>.slack.com/services/new/incoming-webhook`
 
-3. Register a new application on Arena at [dev.are.na](https://dev.are.na/), and get the `Personal Access Token`
+3. Register a new application on Are.na at [dev.are.na](https://dev.are.na/), and get the `Personal Access Token`
 
 4. In Heroku's app settings, add `ARENA_ACCESS_TOKEN` and `SLACK_POST_URL` to the _Config Variables_
 
@@ -21,7 +21,7 @@ Posting your [Arena](https://www.are.na/) feed in a Slack channel via webhooks.
 
 ## Reference
 
-Uses [Arena's Ruby interface](https://github.com/aredotna/arena-rb/) and [Slack Notifier](https://github.com/stevenosloan/slack-notifier).
+Uses [Are.na's Ruby interface](https://github.com/aredotna/arena-rb/) and [Slack Notifier](https://github.com/stevenosloan/slack-notifier).
 
 ## License
 
