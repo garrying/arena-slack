@@ -54,11 +54,19 @@ class ArenaFollowedItem
     color_setter(@story.status) if defined?(@story.title)
   end
 
+  def block_title_link
+    if @story._class == 'Channel'
+      @arena_url + @story.user.slug + '/' + @story.slug
+    else
+      @arena_url + @story.slug
+    end
+  end
+
   def block
     {
       author_name: 'Followed',
       thumb_url: block_thumb,
-      title_link: @arena_url + @story.slug,
+      title_link: block_title_link,
       title: block_title,
       fields: block_fields,
       color: block_color

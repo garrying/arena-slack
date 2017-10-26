@@ -34,4 +34,11 @@ RSpec.describe 'Arena following event' do
     follow_item = ArenaFollowedItem.new(story, @arena_url).block_fields_block_count
     expect(follow_item).to eq('20')
   end
+
+  it 'returns correct channel link' do
+    story = double('Channel', _class: 'Channel', slug: 'block-title' )
+    allow(story).to receive_message_chain('user.slug') { 'author-slug' }
+    add_item = ArenaFollowedItem.new(story, 'https://www.are.na/').block_title_link
+    expect(add_item).to eq('https://www.are.na/author-slug/block-title')
+  end
 end
