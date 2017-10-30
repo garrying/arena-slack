@@ -8,9 +8,9 @@ RSpec.describe 'Slack API' do
     @arena_url = 'https://www.are.na/'
     notifier_base = slack_notifier_base(1509322660)
     arena_footer = {
-      :footer => "Are.na",
-      :footer_icon => "https://www.are.na/favicon.ico",
-      :ts => 1509322660,
+      :footer => 'Are.na',
+      :footer_icon => 'https://www.are.na/favicon.ico',
+      :ts => 1509322660
     }
     expect(notifier_base).to eq(arena_footer)
   end

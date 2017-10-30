@@ -23,7 +23,7 @@ RSpec.describe 'Arena following event' do
     expect(follow_item).to eq('Firstname Lastname')
   end
 
-  it "returns channel with username" do
+  it 'returns channel with username' do
     story = double('Channel', title: 'Channel Name')
     allow(story).to receive_message_chain('user.full_name') { 'Username' }
     follow_item = ArenaFollowedItem.new(story, @arena_url).block_title
@@ -56,14 +56,14 @@ RSpec.describe 'Arena following event' do
   end
 
   it 'returns correct channel link' do
-    story = double('Channel', _class: 'Channel', slug: 'block-title' )
+    story = double('Channel', _class: 'Channel', slug: 'block-title')
     allow(story).to receive_message_chain('user.slug') { 'author-slug' }
     add_item = ArenaFollowedItem.new(story, 'https://www.are.na/').block_title_link
     expect(add_item).to eq('https://www.are.na/author-slug/block-title')
   end
 
   it 'returns correct user link' do
-    story = double('User', _class: 'User', slug: 'username-slug' )
+    story = double('User', _class: 'User', slug: 'username-slug')
     add_item = ArenaFollowedItem.new(story, 'https://www.are.na/').block_title_link
     expect(add_item).to eq('https://www.are.na/username-slug')
   end
