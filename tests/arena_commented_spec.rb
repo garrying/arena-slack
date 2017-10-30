@@ -15,6 +15,15 @@ RSpec.describe 'Arena comment event' do
     expect(comment_item).to eq('Block Title')
   end
 
+  it 'returns a block title for image blocks with no source' do
+    story = double('Block')
+    allow(story).to receive_message_chain('target.has_image?') { true }
+    allow(story).to receive_message_chain('target.source') { nil }
+    allow(story).to receive_message_chain('target.title') { 'Block Title' }
+    comment_item = ArenaCommentedItem.new(story, @arena_url).block_title
+    expect(comment_item).to eq('Block Title')
+  end
+
   it 'returns target content for everything else' do
     story = double('Block')
     allow(story).to receive_message_chain('target.has_image?') { false }
@@ -38,5 +47,14 @@ RSpec.describe 'Arena comment event' do
     allow(story).to receive_message_chain('target.id') { 100 }
     comment_item = ArenaCommentedItem.new(story, 'https://www.are.na/').block_link
     expect(comment_item).to eq('https://www.are.na/block/100')
+  end
+
+  it 'returns an image for a commented block' do
+    story = double('Block')
+    allow(story).to receive_message_chain('target.has_image?') { true }
+    allow(story).to receive_message_chain('target.source') { true }
+    allow(story).to receive_message_chain('target.source.url') { 'https://wwww.block-source.com/source-url' }
+    comment_item = ArenaCommentedItem.new(story, @arena_url).block_link
+    expect(comment_item).to eq('https://wwww.block-source.com/source-url')
   end
 end
