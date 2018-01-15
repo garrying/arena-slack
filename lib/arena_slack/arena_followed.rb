@@ -31,6 +31,8 @@ class ArenaFollowedItem
   def block_fields_block_count
     if defined?(@story.title)
       @story.length
+    elsif @story._class == 'User'
+      @story.channel_count
     else
       @story.follower_count
     end

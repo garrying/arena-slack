@@ -49,8 +49,14 @@ RSpec.describe 'Arena following event' do
     expect(follow_item).to eq('100')
   end
 
-  it 'returns user field values' do
-    story = double('User', follower_count: '20')
+  it 'returns user field channel count' do
+    story = double('User', _class: 'User', follower_count: '20', channel_count: '10')
+    follow_item = ArenaFollowedItem.new(story, @arena_url).block_fields_block_count
+    expect(follow_item).to eq('10')
+  end
+
+  it 'returns user field follower count' do
+    story = double('User', _class: 'Other', follower_count: '20', channel_count: '10')
     follow_item = ArenaFollowedItem.new(story, @arena_url).block_fields_block_count
     expect(follow_item).to eq('20')
   end
