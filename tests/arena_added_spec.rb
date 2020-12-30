@@ -15,7 +15,6 @@ RSpec.describe 'Arena add event' do
 
   it 'returns correct block source link' do
     story = double('Block')
-    allow(story).to receive_message_chain('item.source') { true }
     allow(story).to receive_message_chain('item.source.url') { 'Source Link' }
     add_item = ArenaAddedItem.new(story, @arena_url).block_text_source
     expect(add_item).to eq('Source Link')
@@ -73,7 +72,6 @@ RSpec.describe 'Arena add event' do
 
   it 'returns block source link' do
     story = double('Block')
-    allow(story).to receive_message_chain('item.source') { true }
     allow(story).to receive_message_chain('item.source.url') { 'Source Link' }
     add_item = ArenaAddedItem.new(story, @arena_url).block_title_link_image
     expect(add_item).to eq('Source Link')
@@ -118,7 +116,6 @@ RSpec.describe 'Arena add event' do
   it 'returns block title image link' do
     story = double('Block')
     allow(story).to receive_message_chain('item.has_image?') { true }
-    allow(story).to receive_message_chain('item.source') { true }
     allow(story).to receive_message_chain('item.source.url') { 'Source Link' }
     add_item = ArenaAddedItem.new(story, @arena_url).block_title_link
     expect(add_item).to eq('Source Link')
@@ -126,7 +123,6 @@ RSpec.describe 'Arena add event' do
 
   it 'returns text block author' do
     story = double('Block')
-    allow(story).to receive_message_chain('target') { true }
     allow(story).to receive_message_chain('target.slug') { 'target-slug' }
     allow(story).to receive_message_chain('item.has_image?') { true }
     allow(story).to receive_message_chain('item._class') { 'Text' }
@@ -137,7 +133,6 @@ RSpec.describe 'Arena add event' do
 
   it 'returns image block author' do
     story = double('Block')
-    allow(story).to receive_message_chain('target') { true }
     allow(story).to receive_message_chain('target.slug') { 'target-slug' }
     allow(story).to receive_message_chain('item.has_image?') { false }
     allow(story).to receive_message_chain('item._class') { 'Block' }

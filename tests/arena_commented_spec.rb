@@ -52,7 +52,6 @@ RSpec.describe 'Arena comment event' do
   it 'returns an image for a commented block' do
     story = double('Block')
     allow(story).to receive_message_chain('target.has_image?') { true }
-    allow(story).to receive_message_chain('target.source') { true }
     allow(story).to receive_message_chain('target.source.url') { 'https://wwww.block-source.com/source-url' }
     comment_item = ArenaCommentedItem.new(story, @arena_url).block_link
     expect(comment_item).to eq('https://wwww.block-source.com/source-url')
