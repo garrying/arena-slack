@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'arena'
-gem 'rake'
+gem 'rake' 
 gem 'slack-notifier'
 
 group :test do
