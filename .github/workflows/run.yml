@@ -17,7 +17,7 @@ jobs:
       with:
         ruby-version: 3.1.2
         bundler-cache: true
-    - name: Run tests
+    - name: Run
       env:
         SLACK_POST_URL: ${{ secrets.SLACK_POST_URL }}
         ARENA_ACCESS_TOKEN: ${{ secrets.ARENA_ACCESS_TOKEN }}
