@@ -1,16 +1,16 @@
 version: 2
 updates:
-  - package-ecosystem: 'bundler'
-    directory: '/'
+  - package-ecosystem: "bundler"
+    directory: "/"
     schedule:
-      interval: 'monthly'
+      interval: "weekly"
     groups:
       patch-updates:
         patterns:
           - "*"
         update-types: ["patch"]
 
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: 'monthly'
+      interval: "weekly"
