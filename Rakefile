@@ -3,7 +3,8 @@
 task default: [:check]
 
 task :check do
-  ruby './lib/arena_slack.rb'
+  timestamp = (Time.now - 60 * 10).utc.to_i
+  ruby './lib/arena_slack.rb', timestamp.to_s
 end
 
 task :console do
